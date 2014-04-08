@@ -22,11 +22,13 @@ grunt.loadNpmTasks('grunt-exorcise');
 ```js
 grunt.initConfig({
   exorcise: {
-    options: {},
-    files: {
-      'public/js/bundle.map': ['public/js/bundle.js'],
-    },
-  },
+    bundle: {
+      options: {},
+      files: {
+        'public/js/bundle.map': ['public/js/bundle.js'],
+      }
+    }
+  }
 });
 ```
 
