@@ -39,6 +39,11 @@ Type: `String`
 
 Location to place the new bundle with the inline source map removed. By default the source bundle file will be overwritten.
 
+#### options.strict
+Type: `Boolean`
+Default: `false`
+Fail the build when the source map is missing. Default is `false`, equivalent to exorcist default behaviour.
+
 #### options.url & options.root
 Type: `String`
 
