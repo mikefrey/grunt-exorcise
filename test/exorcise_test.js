@@ -42,5 +42,17 @@ exports.exorcise = {
     test.equal(actual, expected, 'should be correct')
 
     test.done()
+  },
+  noMap: function(test) {
+    test.expect(2)
+
+    test.ok(grunt.file.exists('tmp/nomap/bundle.js'), 'should exist')
+    test.fail(grunt.file.exists('tmp/nomap/bundle.nomap'), 'should not exist')
+
+    var actual = grunt.file.read('tmp/nomap/bundle.js')
+    var expected = grunt.file.read('test/expected/bundle.js')
+    test.equal(actual, expected, 'should be correct')
+
+    test.done()
   }
 }

@@ -37,6 +37,14 @@ module.exports = function(grunt) {
         files: [{
           src: ['test/fixtures/bundle.js'],
           dest: 'tmp/bundle.map'
+      no_map_options: {
+        options: {
+          bundleDest: 'tmp/nomap/bundle.js',
+          strict: false
+        },
+        files: [{
+          src: ['test/fixtures/bundle.nomap.js'],
+          dest: 'tmp/nomap/bundle.map'
         }]
       }
     },
