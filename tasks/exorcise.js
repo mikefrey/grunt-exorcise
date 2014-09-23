@@ -23,7 +23,8 @@ module.exports = function(grunt) {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       url: null,
-      root: null
+      root: null,
+      strict: false
     });
 
     // Iterate over all specified file groups.
@@ -55,7 +56,7 @@ module.exports = function(grunt) {
 
       // setup exorcist
       var ex = exorcist(dest, options.url, options.root)
-      ex.on('missing-map', function(msg) { console.error(msg); done(false) })
+      ex.on('missing-map', function(msg) { grunt.log.warn(msg); done(!options.strict) })
 
       stream.pipe(ex).pipe(write)
     }, done)
