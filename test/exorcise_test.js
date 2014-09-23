@@ -26,7 +26,7 @@ exports.exorcise = {
   bundle: function(test) {
     test.expect(1)
 
-    var actual = grunt.file.read('tmp/bundle.js')
+    var actual = grunt.file.read('tmp/map/bundle.js')
     var expected = grunt.file.read('test/expected/bundle.js')
     test.equal(actual, expected, 'should be rewritten with source map url instead of inlined')
 
@@ -35,9 +35,9 @@ exports.exorcise = {
   map: function(test) {
     test.expect(2)
 
-    test.ok(grunt.file.exists('tmp/bundle.map'), 'should exist')
+    test.ok(grunt.file.exists('tmp/map/bundle.map'), 'should exist')
 
-    var actual = grunt.file.read('tmp/bundle.map')
+    var actual = grunt.file.read('tmp/map/bundle.map')
     var expected = grunt.file.read('test/expected/bundle.map')
     test.equal(actual, expected, 'should be correct')
 
