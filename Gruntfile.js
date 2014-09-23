@@ -32,11 +32,21 @@ module.exports = function(grunt) {
     exorcise: {
       default_options: {
         options: {
-          bundleDest: 'tmp/bundle.js'
+          bundleDest: 'tmp/map/bundle.js'
         },
         files: [{
           src: ['test/fixtures/bundle.js'],
-          dest: 'tmp/bundle.map'
+          dest: 'tmp/map/bundle.map'
+        }]
+      },
+      no_map_options: {
+        options: {
+          bundleDest: 'tmp/nomap/bundle.js',
+          strict: false
+        },
+        files: [{
+          src: ['test/fixtures/bundle.nomap.js'],
+          dest: 'tmp/nomap/bundle.map'
         }]
       }
     },
