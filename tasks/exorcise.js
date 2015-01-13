@@ -32,7 +32,7 @@ module.exports = function(grunt) {
       grunt.log.writeln('Exorcising source map from %s', file.src[0].cyan)
 
       var src = file.src[0]
-      var dest = path.join(process.cwd(), file.dest)
+      var dest = file.dest
 
       if (!grunt.file.exists(src)) {
         grunt.log.warn('Source file "%s" not found.', src.cyan)
