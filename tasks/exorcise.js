@@ -35,7 +35,7 @@ module.exports = function(grunt) {
         return fail('Source file "' + file.src[0].cyan + '" not found.', cb)
 
       var src = file.src[0]
-      var dest = path.join(process.cwd(), file.dest)
+      var dest = file.dest
       grunt.log.writeln('Exorcising source map from %s', src.cyan)
 
       // ensure that the dest directory exists
