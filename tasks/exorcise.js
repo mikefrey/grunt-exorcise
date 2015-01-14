@@ -29,15 +29,14 @@ module.exports = function(grunt) {
 
     // Iterate over all specified file groups.
     async.eachSeries(this.files, function(file, cb) {
-      grunt.log.writeln('Exorcising source map from %s', file.src[0].cyan)
+      if (!file.src || !file.src[0])
+        return fail('Source file was not defined.', cb)
+      if (!grunt.file.exists(file.src[0]))
+        return fail('Source file "' + file.src[0].cyan + '" not found.', cb)
 
       var src = file.src[0]
       var dest = file.dest
-
-      if (!grunt.file.exists(src)) {
-        grunt.log.warn('Source file "%s" not found.', src.cyan)
-        return cb(true)
-      }
+      grunt.log.writeln('Exorcising source map from %s', src.cyan)
 
       // ensure that the dest directory exists
       grunt.file.mkdir(path.dirname(dest))
@@ -62,4 +61,10 @@ module.exports = function(grunt) {
     }, done)
   })
 
+  function fail(msg, cb) {
+    grunt.log.warn(msg)
+    throw new Error(msg)
+  }
+
 }
+
