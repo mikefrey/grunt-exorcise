@@ -55,7 +55,11 @@ module.exports = function(grunt) {
 
       // setup exorcist
       var ex = exorcist(dest, options.url, options.root)
-      ex.on('missing-map', function(msg) { grunt.log.warn(msg); done(!options.strict) })
+      ex.on('missing-map', function(msg) {
+        grunt.log.warn(msg);
+        if (options.strict)
+          done(false)
+      })
 
       stream.pipe(ex).pipe(write)
     }, done)
