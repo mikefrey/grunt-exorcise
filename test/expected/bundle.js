@@ -22,5 +22,4 @@ var foo = require('./foo');
 foo();
 
 },{"./foo":2}]},{},[3])
-
 //# sourceMappingURL=bundle.map
