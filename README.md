@@ -44,7 +44,7 @@ Type: `Boolean`
 Default: `false`
 Fail the build when the source map is missing. Default is `false`, equivalent to exorcist default behaviour.
 
-#### options.url & options.root
+#### options.url & options.root & options.base
 Type: `String`
 
 Passed directly to exorcist. Refer to the exorcist [documentation](https://github.com/thlorenz/exorcist).
