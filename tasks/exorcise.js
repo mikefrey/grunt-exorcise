@@ -49,7 +49,8 @@ module.exports = function(grunt) {
       var data = fs.readFileSync(src, 'utf8')
       var stream = resumer().queue(data).end()
       var write = concat(function(data) {
-        var out = options.bundleDest || src
+        // map miltiple bundles to destation folder
+        var out = options.bundleDest? path.resolve( options.bundleDest,path.basename(src) ) : src
         grunt.file.write(out, data)
         cb()
       })
